@@ -1,12 +1,14 @@
 const Users = require('../models/Users');
 const { InvalidArgumentError, InternalServerError } = require('../middleware/erros');
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
+const secretPassword = process.env.secretPassword
 
 const createTokenJWT = (usuario) =>{
   const payload = {
     id: usuario.id,
   }
-  const token = jwt.sign(payload, 'senha')
+  const token = jwt.sign(payload, secretPassword)
   return token;
 }
 
