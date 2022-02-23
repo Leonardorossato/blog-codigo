@@ -1,0 +1,18 @@
+{
+  "name": "blog-codigo",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "server.js": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "sqlite3": "^5.0.2"
+  }
+}
