@@ -1,5 +1,5 @@
-const postsDao = require('./posts-dao');
-const validacoes = require('../middleware/validations');
+const postsDao = require('../Data/postsDao');
+const validations = require('../middleware/validations');
 
 class Posts {
   constructor(post) {
@@ -13,11 +13,11 @@ class Posts {
   }
 
   valida() {
-    validacoes.campoStringNaoNulo(this.titulo, 'título');
-    validacoes.campoTamanhoMinimo(this.titulo, 'título', 5);
+    validations.campoStringNaoNulo(this.titulo, 'título');
+    validations.campoTamanhoMinimo(this.titulo, 'título', 5);
 
-    validacoes.campoStringNaoNulo(this.conteudo, 'conteúdo');
-    validacoes.campoTamanhoMaximo(this.conteudo, 'conteúdo', 140);
+    validations.campoStringNaoNulo(this.conteudo, 'conteúdo');
+    validations.campoTamanhoMaximo(this.conteudo, 'conteúdo', 140);
   }
 
   static lista() {

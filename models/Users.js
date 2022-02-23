@@ -1,4 +1,4 @@
-const usuariosDao = require('./usuarios-dao');
+const usersDao = require('../Data/usersDao');
 const { InvalidArgumentError } = require('../middleware/erros');
 const validations = require('../middleware/validations');
 
@@ -17,7 +17,7 @@ class Users {
       throw new InvalidArgumentError('O usuário já existe!');
     }
 
-    return usuariosDao.adiciona(this);
+    return usersDao.adiciona(this);
   }
 
   valida() {
@@ -30,29 +30,29 @@ class Users {
 
   
   async deleta() {
-    return usuariosDao.deleta(this);
+    return usersDao.deleta(this);
   }
   
   static async buscaPorId(id) {
-    const usuario = await usuariosDao.buscaPorId(id);
+    const usuario = await usersDao.buscaPorId(id);
     if (!usuario) {
       return null;
     }
     
-    return new Usuario(usuario);
+    return new Users(usuario);
   }
   
   static async buscaPorEmail(email) {
-    const usuario = await usuariosDao.buscaPorEmail(email);
+    const usuario = await usersDao.buscaPorEmail(email);
     if (!usuario) {
       return null;
     }
     
-    return new Usuario(usuario);
+    return new Users(usuario);
   }
 
   static lista() {
-    return usuariosDao.lista();
+    return usersDao.lista();
   }
 }
 
