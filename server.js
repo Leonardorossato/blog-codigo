@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const db = require('./database/schema');
 const postRouter = require('./routes/postRouter')
 const userRouter = require('./routes/userRouter')
+const autentication = require('./auth/autentication')
 require('dotenv').config()
 const port = process.env.PORT 
 
