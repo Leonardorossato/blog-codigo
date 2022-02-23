@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 schema.sync().then(() => {
-    console.log('Connection successful with sqlite3')
+    console.log('Connection successful with Mysql Workbench')
 }).catch(err => {
-    console.log('Connection failed with sqlite3 error: ' + err)
+    console.log('Connection failed with Mysql error: ' + err)
 })
 
 
