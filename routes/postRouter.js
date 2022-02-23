@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router()
 const postsControllers = require('../controllers/postsControllers');
 
-route('/post')
+router('/post')
 router.get(postsControllers.lista)
 router.post(postsControllers.adiciona);
+
+module.exports = router
