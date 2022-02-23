@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 const postsControllers = require('../controllers/postsControllers');
 
-router('/post')
+router.post('/post')
 router.get(postsControllers.lista)
 router.post(postsControllers.adiciona);
 
