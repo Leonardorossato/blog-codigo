@@ -1,16 +1,17 @@
-const Usuario = require('../models/Users');
-const { InvalidArgumentError, InternalServerError } = require('../middleware/validations');
+const Users = require('../models/Users');
+const { InvalidArgumentError, InternalServerError } = require('../middleware/erros');
 
 module.exports = {
   adiciona: async (req, res) => {
     const { nome, email, senha } = req.body;
 
     try {
-      const usuario = new Usuario({
+      const usuario = new Users({
         nome,
         email,
-        senha
       });
+
+      await usuario.addSenha(senha);
 
       await usuario.adiciona();
 
@@ -27,12 +28,12 @@ module.exports = {
   },
 
   lista: async (req, res) => {
-    const usuarios = await Usuario.lista();
+    const usuarios = await Users.lista();
     res.json(usuarios);
   },
 
   deleta: async (req, res) => {
-    const usuario = await Usuario.buscaPorId(req.params.id);
+    const usuario = await Users.buscaPorId(req.params.id);
     try {
       await usuario.deleta();
       res.status(200).send();
