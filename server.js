@@ -15,6 +15,4 @@ app.use('/api/posts', postRouter)
 
 app.db = db
 
-
-
 app.listen(port, () => console.log(`App listening on port ${port}`));
