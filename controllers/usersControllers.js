@@ -8,7 +8,7 @@ const createTokenJWT = (usuario) =>{
   const payload = {
     id: usuario.id,
   }
-  const token = jwt.sign(payload, secretPassword)
+  const token = jwt.sign(payload, secretPassword, { expiresIn: '15m'})
   return token;
 }
 
