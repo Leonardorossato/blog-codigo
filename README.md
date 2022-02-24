@@ -6,5 +6,7 @@
 
 - Node.js
 - Express
-- Sqlite
-- MySQL
+- Sqlite3
+- Sequelize
+- Jsonwebtoken
+- bcrypt
