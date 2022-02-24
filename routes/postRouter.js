@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router()
-const passport = require('passport')
+const autentication = require('../middleware/autentication')
 const postsControllers = require('../controllers/postsControllers');
 
 router.get('/',postsControllers.lista)
-router.post('/add', passport.authenticate('bearer', {session: false}), postsControllers.adiciona);
+router.post('/add', autentication.bearer, postsControllers.adiciona);
 
 module.exports = router
